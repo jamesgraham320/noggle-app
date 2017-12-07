@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+		<link rel="stylesheet" href="shake-animation.css" charset="utf-8">
+    <link rel="stylesheet" href="styles.css" charset="utf-8">
+
+    <title>noggle</title>
+		<script src="action_cable.js"></script>
+    <script src="index.js"></script>
+    <script src="htmlStates.js"></script>
+		<script src="jqfloat.js"></script>
+
+    </script>
+  </head>
+  <body>
+    <div class="home-container">
+			<h1>
+				<span>n</span>
+				<span>o</span>
+				<span>g</span>
+				<span>g</span>
+				<span>l</span>
+				<span>e</span>
+			</h1>
+
+			<!--<script charset="utf-8">
+				let title = document.getElementById("title-span")
+				let word =  'noggle'
+				for (let i = 0; i < word.length; i++) {
+					let currentChar = word.charAt(i)
+					title.innerHTML += `<h1 class="shake shake-constant shake-hard">${currentChar}</h1>`
+				}
+			</script>-->
+
+      <form id='user-login' accept-charset="utf-8">
+        <div class="field has-addons">
+          <div class="control">
+            <input type="text" name="username" class="input" id="username" placeholder="Enter Your Name" autocomplete="off"/>
+          </div>
+          <div class="control">
+            <input type="submit" name="submit" class="button is-primary" id="submit" value="Submit" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
