@@ -2,7 +2,7 @@
 //let guessedWords = []
 let timer
 
-function establishConnection() {
+const establishConnection = new Promise((resolve, reject) => {
   //Opens a websocket which receives broadcasted info from Rails
   window.App = {}
   window.App.cable = ActionCable.createConsumer(`wss://noggle.herokuapp.com/cable?token=${sessionStorage.getItem('userId')}`)
@@ -54,8 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       } else {
         //if a user comes back, now connect to the websocket and show online users
         sessionStorage.setItem('userId', json.user.id)
-        establishConnection()
-        setTimeout(fetchUsers, 400)
+        establishConnection.then(fetchUsers())
       }
     })
   })
@@ -243,7 +242,7 @@ function displayEndGame(finalScores) {
   }
   else {
     let winnerString = winners.slice(0,-1).join(', ') + ` & ${winners.pop()}`
-    winnerDiv.innerText = winnerString + ' win!'
+    winnerDiv.innerHTML = `<h1>${winnersString + ' wins!'}</h1>`
   }
   //display final scores
   finalScores.users.forEach(user => {
