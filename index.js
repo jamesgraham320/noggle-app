@@ -33,7 +33,7 @@ const establishConnection = new Promise((resolve, reject) => {
         displayMessage(data.message)
     }
   })
-}
+})
 
 document.addEventListener('DOMContentLoaded', (event) => {
   sessionStorage.clear();
