@@ -2,13 +2,14 @@
 //let guessedWords = []
 let timer
 
-const establishConnection = new Promise((resolve, reject) => {
-  //Opens a websocket which receives broadcasted info from Rails
+function establishConnection() {
+  console.log('starting this promise')
   window.App = {}
   window.App.cable = ActionCable.createConsumer(`wss://noggle.herokuapp.com/cable?token=${sessionStorage.getItem('userId')}`)
   return window.App.cable.subscriptions.create("GameInstanceChannel", {
   connected() {
     console.log('we made it')
+    fetchUsers()
   },
     received(data) {
       console.log(data)
@@ -29,11 +30,12 @@ const establishConnection = new Promise((resolve, reject) => {
         clearInterval(timer)
         displayEndGame(data.final_scores)
       }
-      else if (data.message)
+      else if (data.message) {
         displayMessage(data.message)
+      }
     }
   })
-})
+}
 
 document.addEventListener('DOMContentLoaded', (event) => {
   sessionStorage.clear();
@@ -54,7 +56,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       } else {
         //if a user comes back, now connect to the websocket and show online users
         sessionStorage.setItem('userId', json.user.id)
-        establishConnection.then(fetchUsers())
+
+        establishConnection();
+
       }
     })
   })
