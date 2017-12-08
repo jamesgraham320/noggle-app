@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   usernameForm.addEventListener('submit', (event) => {
     event.preventDefault()
     let username = document.getElementById("username").value
-    fetch("http://noggle.herokuapp.com/users", {
+    fetch("https://noggle.herokuapp.com/users", {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({'username': username.toLowerCase()})
@@ -91,7 +91,7 @@ function displayOnlineUsers(data){
   $("#card").flip();
   //add event listener to start button to make a game
   startButton.addEventListener('click', (event) => {
-    fetch("http://noggle.herokuapp.com/games", {
+    fetch("https://noggle.herokuapp.com/games", {
       method: 'post',
       headers: {'Content-Type': 'application/json'}
     })
@@ -109,7 +109,7 @@ function displayOnlineUsers(data){
   messageForm.addEventListener('submit', (event) => {
     event.preventDefault()
     let message = document.getElementById('message').value
-    fetch('http://noggle.herokuapp.com/messages', {
+    fetch('https://noggle.herokuapp.com/messages', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({message: {user: parseInt(sessionStorage.userId), content: message}})
@@ -139,7 +139,7 @@ function displayGame(gameData) {
     if (parseInt(timerDiv.innerText) > 0){
     timerDiv.innerText =  parseInt(timerDiv.innerText) - 1
     } else {
-      fetch(`http://noggle.herokuapp.com/games/${sessionStorage.getItem("gameId")}`, {
+      fetch(`https://noggle.herokuapp.com/games/${sessionStorage.getItem("gameId")}`, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'}
       })
@@ -194,7 +194,7 @@ function checkUserWord(word, scrambleSolutions, guessedWords){
     else if (word.length >= 5) {
       nogtastic.play();
     }
-    fetch(`http://noggle.herokuapp.com/scores/${sessionStorage.getItem('scoreId')}`,{
+    fetch(`https://noggle.herokuapp.com/scores/${sessionStorage.getItem('scoreId')}`,{
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(
@@ -227,7 +227,7 @@ function showGuessedWords(guessedWords){
 }
 
 function fetchUsers() {
-  fetch("http://noggle.herokuapp.com/users")
+  fetch("https://noggle.herokuapp.com/users")
 }
 
 function displayEndGame(finalScores) {
