@@ -173,10 +173,10 @@ function displayScores(gameData) {
   //Add everyones score to the scoreboard
   let scoreboardTable = document.getElementById('scoreboard')
   scoreboardTable.innerHTML= ""
-  gameData.users.forEach(user => {
-    let userScore = gameData.scores.find( score => user.id === score.user_id)
+  gameData.scores.forEach(score => {
+    let userScore = gameData.users.find( user => user.id === score.user_id)
     let newTr = document.createElement('tr')
-    newTr.innerHTML = `<td>${user.username}</td><td>${userScore.points}</td>`
+    newTr.innerHTML = `<td>${userScore.username}</td><td>${score.points}</td>`
     scoreboard.append(newTr)
   })
 }
@@ -249,10 +249,10 @@ function displayEndGame(finalScores) {
     winnerDiv.innerHTML = `<h1>${winnersString + ' wins!'}</h1>`
   }
   //display final scores
-  finalScores.users.forEach(user => {
-    let userScore = finalScores.scores.find( score => user.id === score.user_id)
+  finalScores.scores.forEach(score => {
+    let userScore = finalScores.users.find( user => user.id === score.user_id)
     let newTr = document.createElement('tr')
-    newTr.innerHTML = `<td>${user.username}</td><td>${userScore.points}</td>`
+    newTr.innerHTML = `<td>${userScore.username}</td><td>${score.points}</td>`
     scoreboard.append(newTr)
   })
   //add event listener to start over button
