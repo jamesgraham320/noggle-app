@@ -1,5 +1,3 @@
-//let scrambleSolutions = []
-//let guessedWords = []
 let timer
 
 function establishConnection() {
