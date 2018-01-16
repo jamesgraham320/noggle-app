@@ -1,6 +1,6 @@
 # NOGGLE
 
-This repository is the back-end companion to https://github.com/jamesgraham320/noggle_api. 
+This repository is the front-end companion to https://github.com/jamesgraham320/noggle_api. 
 
 Live Demo: 
 https://jamesgraham320.github.io/noggle-app/
