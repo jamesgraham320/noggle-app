@@ -46,7 +46,7 @@ let usersOnlineHTML = `
     </div>
   </div>
 </div>
-<div class="center-this-bitch">
+<div class="center-this">
   <button id="start-game" class="button is-primary is-large is-rounded">Start Game</button>
 </div>
 `
@@ -122,7 +122,7 @@ let gameOverHTML = `
         </tbody>
       </table>
   </div>
-  <div class="center-this-bitch">
+  <div class="center-this">
     <button id="start-over" class="button is-primary is-large is-rounded">Play Again</button>
   </div>
 `
